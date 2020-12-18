@@ -1,0 +1,197 @@
+
+* {
+  box-sizing: border-box;
+  text-decoration: none;
+}
+
+p,h1 {
+  margin: 0;
+}
+
+body {
+  margin: 0;
+  font-family:sans-serif;
+}
+
+
+header {
+
+  height:40px;
+  line-height: 40px;
+  display: flex;
+  justify-content: space-between;
+  background-color: #111;
+  color:white;
+  font-size: 80%;
+ 
+}
+
+.header_user {
+  margin-left: 20px;
+}
+
+.header_auth {
+  display: flex;
+  padding-right: 20px;
+}
+
+.header_signup {
+  margin-right: 30px;
+}
+
+
+.container {
+  width: 90%;
+  margin: 0 auto;
+}
+
+
+#main {
+  display: flex;
+  width: 100%;
+  margin-top: 100px;
+}
+
+#main_left {
+  width: 30%;
+  background-color: white;
+  min-height: 500px;
+  margin-right: 3%;
+}
+
+.left_menu {
+  height: 50px;
+  line-height: 50px;
+  margin-left: 15px;
+  margin-right:15px;
+
+  color:#555;
+}
+
+.arr {
+  display: inline-block;
+  height: 8px;
+  width: 8px;
+  transform:rotate(-45deg);
+
+  border-bottom:1px solid gray;
+  border-right: 1px solid gray;
+  margin-right: 10px;
+
+}
+
+
+
+
+
+#main_right {
+  width: 67%;
+  background-color: white;
+  min-height:500px;
+  border: 1px solid #ddd;
+}
+
+.post_header {
+  padding-top:50px;
+  padding-right: 20px;
+  padding-left: 20px;
+  display: flex;
+  margin-bottom: 20px;
+  justify-content: space-between;
+}
+
+
+
+.post_header_right, .post_header_left {
+  display: flex;
+}
+
+
+
+
+.post_fav {
+  margin-right: 30px;
+}
+
+
+
+
+
+
+
+.post_user {
+  margin-right: 20px;
+}
+
+.post_date {
+  margin-right: 20px;
+}
+
+.post_title {
+  font-size: 120%;
+  margin-bottom: 50px;
+  padding-right: 20px;
+  padding-left: 20px;
+}
+
+.post_content {
+  padding-right: 20px;
+  padding-left: 20px;
+  padding-bottom: 50px;
+  border-bottom: 1px solid #ddd;
+}
+
+
+
+
+.profile_cover {
+  background-color: #ddd;
+  height: 150px;
+  margin-bottom: 20px;
+}
+
+
+.profile_name {
+  text-align: center;
+
+}
+
+.profile_userid {
+  text-align: center;
+  font-size: 80%;
+  margin-bottom: 20px;
+}
+
+.profile_detail {
+  text-align: center;
+  font-size: 90%;
+  margin-bottom: 20px;
+}
+
+
+.profile_follow {
+  margin-bottom: 40px;
+  text-align: center;
+  border: 1px solid #ddd;
+  padding-top: 5px;
+  padding-bottom: 5px;
+}
+
+.profile_info {
+  display: flex;
+  width: 100%;
+}
+
+.profile_posts, .profile_follows,.profile_followers {
+  font-size: 90%;
+  width: 30%;
+  text-align: center;
+}
+
+.profile_posts, .profile_follows {
+  margin-right: 5%;
+}
+
+.profile_info p {
+  font-size: 111%;
+}
