@@ -1,0 +1,150 @@
+
+* {
+  box-sizing: border-box;
+  text-decoration: none;
+}
+
+p,h1 {
+  margin: 0;
+}
+
+body {
+  margin: 0;
+  font-family:sans-serif;
+}
+
+a {
+  color:white;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+header {
+
+  height:40px;
+  line-height: 40px;
+  display: flex;
+  justify-content: space-between;
+  background-color: #111;
+  color:white;
+  font-size: 80%;
+ 
+}
+
+.header_user {
+  margin-left: 20px;
+}
+
+.header_auth {
+  display: flex;
+  padding-right: 20px;
+}
+
+.header_signup {
+  margin-right: 30px;
+}
+
+
+.container {
+  width: 90%;
+  margin: 0 auto;
+}
+
+
+
+
+#main {
+  display: flex;
+  width: 100%;
+  margin-top: 70px;
+  margin-bottom: 100px;
+}
+
+#main_left {
+  width: 57%;
+  background-color: white;
+  min-height: 500px;
+  margin-right: 3%;
+  margin-top: 100px;
+}
+
+#main_left h1 {
+  margin-bottom: 30px;
+}
+
+
+
+
+
+
+#main_right {
+  width: 40%;
+  background-color: white;
+  min-height:500px;
+  border: 1px solid #ddd;
+  font-size: 80%;
+
+  padding:60px 50px;
+}
+
+#main_right label {
+  display: inline-block;
+  margin-bottom: 5px;
+}
+
+#main_right h1 {
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+#main_right input {
+  width: 100%;
+  padding:7px 5px;
+  border:1px solid #ddd; 
+}
+
+#main_right input:focus {
+  outline:none;
+  border: 1px solid #aaa;
+}
+
+#main_right div {
+  margin-bottom: 20px;
+}
+
+.btn {
+  margin-top: 50px;
+  display: inline-block;
+  height: 40px;
+  line-height: 40px;
+  text-align: center;
+  color: white;
+  font-weight: bold;
+  background-color:#2CB696;
+  width: 100%;
+  border-radius: 3px;
+  border:none;
+}
+
+.btn:hover {
+  opacity:0.8;
+}
+
+.btn:focus {
+  outline:none;
+}
+
+
+
+
+.invalid-feedback {
+  width: 100%;
+  margin-top: 0.25rem;
+  font-size: 80%;
+  color: #e3342f;
+}
+
+
+

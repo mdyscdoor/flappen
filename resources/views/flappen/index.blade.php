@@ -12,8 +12,8 @@
     <p class="header_user">Flappen</p>
 
     <div class="header_auth">
-      <p class="header_signup">新規登録</p>
-      <p class="header_login">ログイン</p>
+      <p class="header_signup"><a href="register">新規登録</a></p>
+      <p class="header_login"><a href="login">ログイン</a></p>
     </div>
   </header>
 
