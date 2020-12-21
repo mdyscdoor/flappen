@@ -24,3 +24,14 @@ Route::get('/', 'App\Http\Controllers\FlappenController@index');
 
 Auth::routes();
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+
+
+Route::group(['middleware' => 'auth'], function() {
+
+  Route::get('user/{username?}', 'App\Http\Controllers\UsersController@index');
+  Route::get('user/list', 'App\Http\Controllers\UsersController@index');
+  Route::get('user/following', 'App\Http\Controllers\UsersController@followIndex');
+  Route::get('user/show', 'App\Http\Controllers\UsersController@show');
+
+});
