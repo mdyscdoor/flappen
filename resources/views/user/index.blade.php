@@ -45,16 +45,22 @@
             <div class="userAbout">
               <div class="userHeader">
                 <div class="userHeaderLeft">
-                  <h1 class="userName">{{$item->nickname}}</h1>
+                  <h1 class="userName"><a href="user/{{$item->name}}">{{$item->nickname}}</a></h1>
                   <div class="userDetail">
                     <div class="userId">{{'@'.$item->name}}</div>
-                    <div class="userType">{{$item->type}}</div>
+                    <div class="userType">
+                      @if($item->type === 0)
+                      理
+                      @elseif($item->type === 0)
+                      文
+                      @else
+                      
+                      @endif
+                    </div>
                   </div>
                 </div>
 
                 <div class="userHeaderRight">
-
-
                     @if(!$myUser->isFollowing($item->id))
                     <a href="?followId={{$item->id}}" class="follow">フォローする</a>
                     @else

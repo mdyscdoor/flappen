@@ -45,13 +45,13 @@
 
             @else
               <div class="profile_edit">
-                <a href="">プロフィールを編集</a>
+                <a href="{{$user->name}}/edit">プロフィールを編集</a>
               </div>
             @endif
 
             <div class="profile_info">
               <div class="profile_posts">
-                <p class="profile_counts">??</p>
+                <p class="profile_counts">{{$postsCount}}</p>
                 投稿数
               </div>
               <div class="profile_follows">
@@ -66,73 +66,53 @@
           </div>
         </div>
   
+
+
+
         <div id="main_right">
 
-          <div class="post">
 
-            <div class="post_header">
-              <div class="post_header_left">
-                <div class="post_user">
-                  わたしのなまえ
+          @foreach($posts as $post) 
+          <div class="post post{{$loop->iteration}}">
+            <a href="../post?id={{$post->id}}" class="postLink{{$loop->iteration}}">
+              <div class="post_header">
+                <div class="post_header_left">
+                  <div class="post_user">
+                    {{$user->nickname}}
+                  </div>
+                  <div class="post_date">
+                    {{$post->created_at}}
+                  </div>
+                  <div class="post_type">
+                    (農学系)
+                  </div>
                 </div>
-                <div class="post_date">
-                  2020-12-12
+
+                <div class="post_header_right">
+                  <div class="post_fav">
+                    <object data="" type="">
+                      @if((boolean)$post->favorite()->orwhere('user_id', $user->id)->first())
+                      <a href="?favoriteId={{$post->id}}" class="favLink favorited">❤</a>
+                      @else
+                      <a href="?favoriteId={{$post->id}}" class="favLink">❤</a>
+                      @endif 
+                    </object>
+                  </div>
                 </div>
-                <div class="post_type">
-                  農学系
-                </div>
+
+
               </div>
 
-              <div class="post_header_right">
-                <div class="post_fav">❤</div>
-                <div class="post_comment">コメント</div>
+              <h1 class="post_title">{{$post->title}}</h1>
+
+              <div class="post_content">
+                {{$post->content}}
               </div>
-
-
-            </div>
-  
-            <h1 class="post_title">記事のタイトル</h1>
-  
-            <div class="post_content">
-              aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-              aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-              aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-            </div>
-
+            </a>
           </div>
-          
-          <div class="post">
+          @endforeach
+          {{$posts->links()}}
 
-            <div class="post_header">
-              <div class="post_header_left">
-                <div class="post_user">
-                  わたしのなまえ
-                </div>
-                <div class="post_date">
-                  2020-12-12
-                </div>
-                <div class="post_type">
-                  農学系
-                </div>
-              </div>
-
-              <div class="post_header_right">
-                <div class="post_fav">❤</div>
-                <div class="post_comment">コメント</div>
-              </div>
-
-
-            </div>
-  
-            <h1 class="post_title">記事のタイトル</h1>
-  
-            <div class="post_content">
-              aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-              aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-              aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-            </div>
-
-          </div>
 
 
         </div>

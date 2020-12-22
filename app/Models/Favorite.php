@@ -9,7 +9,9 @@ class Favorite extends Model
 {
     use HasFactory;
 
-
+    public function isFavoriting($post_id) {
+        return (boolean) $this->where('post_id', $post_id)->first();
+    }
     
 
     

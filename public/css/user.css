@@ -163,6 +163,10 @@ header {
   font-size: 100%;
 }
 
+.userName a {
+  color:black;
+}
+
 .userDetail {
   display: flex;
   font-size: 80%;

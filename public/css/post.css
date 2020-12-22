@@ -46,6 +46,9 @@ header {
 }
 
 
+
+
+
 #main {
   display: flex;
   width: 100%;
@@ -53,7 +56,7 @@ header {
 }
 
 #main_left {
-  width: 30%;
+  width: 20%;
   background-color: white;
   min-height: 500px;
   margin-right: 3%;
@@ -85,9 +88,14 @@ header {
 
 
 #main_right {
-  width: 67%;
+  width: 77%;
   background-color: white;
   min-height:500px;
+
+}
+
+.post {
+  min-height: 500px;
   border: 1px solid #ddd;
 }
 
@@ -129,7 +137,7 @@ header {
 
 .post_title {
   font-size: 120%;
-  margin-bottom: 50px;
+  margin-bottom: 100px;
   padding-right: 20px;
   padding-left: 20px;
 }
@@ -138,74 +146,70 @@ header {
   padding-right: 20px;
   padding-left: 20px;
   padding-bottom: 50px;
-  border-bottom: 1px solid #ddd;
-}
-
-
-
-
-.profile_cover {
-  background-color: #ddd;
-  height: 150px;
-  margin-bottom: 20px;
-}
-
-
-.profile_name {
-  text-align: center;
 
 }
 
-.profile_userid {
-  text-align: center;
-  font-size: 80%;
-  margin-bottom: 20px;
+
+
+
+.comments {
+  margin-top: 100px;
+  margin-left: 50px;
 }
 
-.profile_detail {
-  text-align: center;
-  font-size: 90%;
-  margin-bottom: 20px;
+.comments_header {
+  font-size: 120%;
 }
 
-
-.profile_follow {
-  margin-bottom: 40px;
-  text-align: center;
-  border: 1px solid #ddd;
-  padding-top: 5px;
-  padding-bottom: 5px;
-}
-
-.profile_info {
+.comment_header {
+  padding-top:50px;
+  padding-right: 20px;
+  padding-left: 20px;
   display: flex;
+  margin-bottom: 20px;
+
+}
+
+.comment_user {
+  margin-right: 20px;
+}
+
+.comment_date {
+  margin-right: 20px;
+}
+
+
+.comment_content {
+  padding-left: 20px;
+  padding-bottom: 50px;
+}
+
+.post_comment textarea {
+  margin-top: 30px;
+  margin-left: 20px;
   width: 100%;
+  padding-top: 5px;
+  padding-left: 10px;
 }
 
-.profile_posts, .profile_follows,.profile_followers {
-  font-size: 90%;
-  width: 30%;
-  text-align: center;
+.btn {
+  display: inline-block;
+  width: 100px;
+  padding: 5px 10px;
+  border: none;
+  margin-left: 20px;
+  margin-top: 20px;
+  margin-bottom: 50px;
+  margin-right: 20px;
+  border-radius: 3px;
+  background-color:#2CB696;
+  color:white;
 }
 
-.profile_posts, .profile_follows {
-  margin-right: 5%;
-}
-
-.profile_info p {
-  font-size: 111%;
-}
-
-.post1, .post2, .post3, .post4, .post5 {
-  position: relative;
-}
-
-.post:hover {
-  background-color: #eee;
-}
-
-.postLink1, .postLink2, .postLink3, .postLink4, .postLink5{
-  color: black;
+.err {
+  font-size: 70%;
+  color:red;
+  margin-left: 20px;
 }
 
 .favLink {
@@ -215,4 +219,15 @@ header {
 
 .favorited {
   color:pink;
+}
+
+.post_delete {
+  font-size: 80%;
+  margin-top: 15px;
+  margin-right: 10px;
+  color: #333;
+}
+
+.post_delete a {
+  color: #333;
 }

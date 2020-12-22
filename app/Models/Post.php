@@ -21,4 +21,16 @@ class Post extends Model
         return $this->hasMany(Comment::class);
     }
 
+
+
+    public function getUserPosts($user_id) {
+        return $this->where('user_id', $user_id)->simplePaginate(5);
+    }
+
+
+
+    public function howManyPosts($user_id) {
+        return $this->where('user_id', $user_id)->count();
+    }
+
 }

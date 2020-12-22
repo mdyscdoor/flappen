@@ -1,0 +1,146 @@
+
+* {
+  box-sizing: border-box;
+  text-decoration: none;
+}
+
+p,h1 {
+  margin: 0;
+}
+
+body {
+  margin: 0;
+  font-family:sans-serif;
+}
+
+
+header {
+
+  height:40px;
+  line-height: 40px;
+  display: flex;
+  justify-content: space-between;
+  background-color: #111;
+  color:white;
+  font-size: 80%;
+ 
+}
+
+.header_user {
+  margin-left: 20px;
+}
+
+.header_auth {
+  display: flex;
+  padding-right: 20px;
+}
+
+.header_signup {
+  margin-right: 30px;
+}
+
+
+.container {
+  width: 90%;
+  margin: 0 auto;
+}
+
+
+#main {
+  width: 500px;
+  margin-top: 100px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+
+.profile_name {
+  text-align: center;
+
+}
+
+.profile_userid {
+  text-align: center;
+  font-size: 80%;
+  margin-bottom: 20px;
+}
+
+.profile_detail {
+  text-align: center;
+  font-size: 90%;
+  margin-bottom: 20px;
+}
+
+
+.profile_follow {
+  margin-bottom: 40px;
+  text-align: center;
+  border: 1px solid #ddd;
+  padding-top: 5px;
+  padding-bottom: 5px;
+}
+
+.profile_info {
+  display: flex;
+  width: 100%;
+}
+
+.profile_posts, .profile_follows,.profile_followers {
+  font-size: 90%;
+  width: 30%;
+  text-align: center;
+}
+
+.profile_posts, .profile_follows {
+  margin-right: 5%;
+}
+
+.profile_info p {
+  font-size: 111%;
+}
+
+
+
+
+
+
+.post input, .post textarea {
+  border: solid 2px #ddd;
+  border-radius: 2px;
+  width: 100%;
+}
+
+.post input:focus, .post textarea:focus {
+  border: solid 2px #444;
+  outline:none;
+}
+
+
+
+
+.edit_name {
+  margin-bottom: 10px;
+  padding:5px;
+  width: 450px;
+}
+
+.edit_type {
+  margin-bottom: 30px;
+}
+
+
+
+
+.post_submit {
+  margin-top: 50px;
+  margin-bottom: 40px;
+  text-align: center;
+  border: 1px solid #ddd;
+  padding-top: 5px;
+  padding-bottom: 5px;
+}
+
+.err {
+  font-size: 70%;
+  color:red;
+}
