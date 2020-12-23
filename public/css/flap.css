@@ -151,3 +151,11 @@ header {
 
 
 
+.favLink {
+  color:#333;
+  font-size: 200%;
+}
+
+.favorited {
+  color:pink;
+}

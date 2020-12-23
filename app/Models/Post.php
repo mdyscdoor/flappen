@@ -29,6 +29,8 @@ class Post extends Model
 
 
 
+
+
     public function howManyPosts($user_id) {
         return $this->where('user_id', $user_id)->count();
     }

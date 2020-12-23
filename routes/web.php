@@ -44,6 +44,13 @@ Route::group(['middleware' => 'auth'], function() {
   Route::get('draft/new', 'App\Http\Controllers\PostsController@new');
   Route::post('draft/new', 'App\Http\Controllers\PostsController@create');
 
+
+  Route::get('post/list', 'App\Http\Controllers\PostsController@index');
+
+
+
+
+
   Route::get('post', 'App\Http\Controllers\PostsController@show');
   Route::post('post', 'App\Http\Controllers\PostsController@comment');
 

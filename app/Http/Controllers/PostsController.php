@@ -11,6 +11,58 @@ use App\Models\Comment;
 class PostsController extends Controller
 {
     
+
+    ////みんなの投稿
+    public function index(User $user, Post $post, Favorite $favorite, Request $request) {
+
+        //いいねする場合
+        if(isset($request->favoriteId)) {
+            $person = auth()->user();
+            $articleId = $request->favoriteId;
+
+            if(!$favorite->isFavoriting($articleId)) {
+                $favorite->post_id = $articleId;
+                $favorite->user_id = $person->id;
+                $favorite->save();
+
+            } else {
+                $favorite->where('post_id', $articleId)->where('user_id',$person->id)->delete();
+            }
+
+            return back();
+        }
+        
+
+
+
+
+
+        if($request->list == 'following') {
+            $posts = $post->whereIn('user_id',auth()->user()->follows()->pluck('followed_id'))->simplePaginate(5);
+        } else {
+            $posts = $post->with('user')->orderBy('updated_at', 'desc')->simplePaginate(5);
+        }
+
+        return view('post.index', ['posts' => $posts]);
+
+
+
+
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+    ////新しく投稿する
     public function new() {
         $myUser = auth()->user();
         
@@ -42,7 +94,7 @@ class PostsController extends Controller
 
 
 
-
+    //////投稿の詳細
     public function show(User $user, Post $posts,Request $request, Favorite $favorite) {
         if(!isset($request->id)) {
             return back();
@@ -78,6 +130,7 @@ class PostsController extends Controller
 
 
 
+    //////コメントする
     public function comment(Post $post, Comment $comment, Request $request) {
         $myUser = auth()->user();
         $rule = [

@@ -75,6 +75,13 @@ class User extends Authenticatable
         //                       'select * from `users` inner join `follows` on `users`.`id` = `follows`.`followed_id` where `follows`.`following_id` is null or `following_id` = ?'
     }
 
+
+    public function getFollowedUsers (int $user_id) {
+        return $this->followers()->orWhere('follows.followed_id', $user_id)->simplePaginate(5);
+    }
+
+
+
     public function howManyFollowings(int $user_id) {
         return $this->follows()->orWhere('follows.following_id', $user_id)->count();
     }

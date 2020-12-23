@@ -65,6 +65,21 @@ class UsersController extends Controller
         }
 
 
+        //フォローしているユーザーのリストを表示する場合
+        if($request->list === 'followers') {
+
+            $users = $user->getFollowedUsers(auth()->user()->id);
+            $myUser = auth()->user();
+            return view('user.index', ['items' => $users], ['myUser' => $myUser]);
+
+        }
+
+
+
+
+
+
+
         //ユーザー詳細画面
         if(isset($request->username)) {
 
