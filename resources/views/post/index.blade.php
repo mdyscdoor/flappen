@@ -23,19 +23,50 @@
       <div id="main">
 
         <div id="main_left">
-          <div class="left_menu"><span class="arr"></span>ユーザー</div>
-          <div class="left_menu"><span class="arr"></span>フォロー</div>
-          <div class="left_menu"><span class="arr"></span>いいね</div>
-          <div class="left_menu"><span class="arr"></span></div>
-          <div class="left_menu"><span class="arr"></span></div>
+        <div class="left_menu"><span class="arr"></span><a href="../user">ユーザー</a></div>
+          <div class="left_menu"><span class="arr"></span><a href="../post/list">ポスト</a></div>
         </div>
   
         <div id="main_right">
 
+        <div class="tabs">
+
+          <div class="tab">
+            <object data="" type="">
+            <a href="../post/list">みんな</a>
+            </object>
+            @if(!isset($following) && !isset($favorite))
+            <div class="underline"></div>              
+
+
+            @endif
+          </div>
+
+          <div class="tab">
+            <object data="" type="">
+            <a href="list?list=following">フォロー</a>
+            </object>
+            @if(isset($following))
+            <div class="underline"></div>
+            @endif
+          </div>
+
+          <div class="tab">
+            <object data="" type="">
+            <a href="list?list=favorite">ブックマーク</a>
+            </object>
+
+            @if(isset($favorite))
+            <div class="underline"></div>
+            @endif
+          </div>
+
+        </div>
 
 
 
           @foreach($posts as $post)
+          <a href="../post?id={{$post->id}}" class="boxLink">
           <div class="post">
             <div class="post_header">
               <div class="post_header_left">
@@ -54,9 +85,15 @@
                 <div class="post_fav">
                   <object data="" type="">
                     @if((boolean)$post->favorite()->where('favorites.user_id', auth()->user()->id)->first())
-                    <a href="?favoriteId={{$post->id}}" class="favLink favorited">❤</a>
+                    <object data="" type="">
+                    <a href="?favoriteId={{$post->id}}" class="favLink favorited">❤</a>                      
+                    </object>
+
                     @else
-                    <a href="?favoriteId={{$post->id}}" class="favLink">❤</a>
+                    <object data="" type="">
+                      <a href="?favoriteId={{$post->id}}" class="favLink">❤</a>                      
+                    </object>
+
                     @endif 
                   </object>
                 </div>
@@ -72,6 +109,7 @@
             </div>
 
           </div>
+          </a>
           @endforeach
 
 

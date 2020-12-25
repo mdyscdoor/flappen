@@ -23,8 +23,8 @@
       <div id="main">
 
         <div id="main_left">
-          <div class="left_menu"><span class="arr"></span>ホーム</div>
-          <div class="left_menu"><span class="arr"></span>フォロー</div>
+          <div class="left_menu"><span class="arr"></span><a href="./user">ユーザー</a></div>
+          <div class="left_menu"><span class="arr"></span><a href="./post/list">ポスト</a></div>
           <div class="left_menu"><span class="arr"></span>いいね</div>
           <div class="left_menu"><span class="arr"></span></div>
           <div class="left_menu"><span class="arr"></span></div>
@@ -56,8 +56,9 @@
                 @endif
                 <div class="post_fav">
                       <object data="" type="">
-                        @if((boolean)$post->favorite()->orwhere('user_id', $user->id)->first())
-                        <a href="?favoriteId={{$post->id. '?id='. $post->id}}" class="favLink favorited">❤</a>
+                        @if((boolean)$post->favorite()->where('favorites.user_id', auth()->user()->id)->first())
+                        
+                        <a href="?favoriteId={{$post->id. '&id='. $post->id}}" class="favLink favorited">❤</a>
                         @else
                         <a href="?favoriteId={{$post->id. '&id='. $post->id}}" class="favLink">❤</a>
                         @endif 

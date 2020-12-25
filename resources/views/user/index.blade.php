@@ -27,8 +27,8 @@
       <div id="main">
 
         <div id="main_left">
-          <div class="left_menu"><span class="arr"></span>ホーム</div>
-          <div class="left_menu"><span class="arr"></span>フォロー</div>
+          <div class="left_menu"><span class="arr"></span><a href="user">ユーザー</a></div>
+          <div class="left_menu"><span class="arr"></span><a href="post/list">ポスト</a></div>
           <div class="left_menu"><span class="arr"></span>いいね</div>
           <div class="left_menu"><span class="arr"></span></div>
           <div class="left_menu"><span class="arr"></span></div>
@@ -36,7 +36,32 @@
   
         <div id="main_right">
 
+        <div class="tabs">
+          <div class="tab">
+            <a href="user">みんな</a>
+            @if(!isset($following) && !isset($followers))
+            <div class="underline"></div>
+            @endif
+          </div>
+          <div class="tab">
+            <a href="user?list=following">フォロー</a>
+            @if(isset($following))
+            <div class="underline"></div>
+            @endif
+          </div>
+          <div class="tab">
+            <a href="user?list=followers">フォロワー</a>
+            @if(isset($followers))
+            <div class="underline"></div>
+            @endif
+          </div>
+        </div>
+
+
+
+
           @foreach($items as $item)
+          <a href="user/{{$item->name}}" class="boxLink">
           <div class="user">
             <div class="userImg">
               <img src="" alt="">
@@ -45,7 +70,7 @@
             <div class="userAbout">
               <div class="userHeader">
                 <div class="userHeaderLeft">
-                  <h1 class="userName"><a href="user/{{$item->name}}">{{$item->nickname}}</a></h1>
+                  <h1 class="userName">{{$item->nickname}}</h1>
                   <div class="userDetail">
                     <div class="userId">{{'@'.$item->name}}</div>
                     <div class="userType">
@@ -62,9 +87,15 @@
 
                 <div class="userHeaderRight">
                     @if(!$myUser->isFollowing($item->id))
+                    <object data="" type="">
                     <a href="?followId={{$item->id}}" class="follow">フォローする</a>
+                    </object>
+  
                     @else
+                    <object data="" type="">
                     <a href="?followId={{$item->id}}" class="unfollow">フォロー中</a>
+                    </object>
+
                     @endif
 
                 </div>
@@ -77,7 +108,7 @@
               </p>
             </div>
           </div>
-
+          </a>
           @endforeach
           
           {{ $items->links() }}

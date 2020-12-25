@@ -56,6 +56,10 @@ class User extends Authenticatable
         return $this->belongsToMany(self::class, 'follows', 'following_id', 'followed_id');
     }
 
+    public function favorites() {
+        return $this->hasMany(Favorite::class);
+    }
+
 
 
 

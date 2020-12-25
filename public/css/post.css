@@ -231,3 +231,8 @@ header {
 .post_delete a {
   color: #333;
 }
+
+
+#main_left a {
+  color:black;
+}

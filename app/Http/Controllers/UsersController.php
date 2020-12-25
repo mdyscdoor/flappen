@@ -60,7 +60,7 @@ class UsersController extends Controller
         if($request->list === 'following') {
             $users = $user->getFollowingUsers(auth()->user()->id);
             $myUser = auth()->user();
-            return view('user.index', ['items' => $users], ['myUser' => $myUser]);
+            return view('user.index', ['items' => $users, 'myUser' => $myUser, 'following' => 'yes'], );
 
         }
 
@@ -70,7 +70,7 @@ class UsersController extends Controller
 
             $users = $user->getFollowedUsers(auth()->user()->id);
             $myUser = auth()->user();
-            return view('user.index', ['items' => $users], ['myUser' => $myUser]);
+            return view('user.index', ['items' => $users, 'myUser' => $myUser, 'followers' => 'yes']);
 
         }
 

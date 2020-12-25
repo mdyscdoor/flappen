@@ -216,3 +216,8 @@ header {
 .favorited {
   color:pink;
 }
+
+
+#main_left a {
+  color:black;
+}

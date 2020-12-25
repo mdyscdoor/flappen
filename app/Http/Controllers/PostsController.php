@@ -36,9 +36,17 @@ class PostsController extends Controller
 
 
 
-
+        //フォローしているユーザーの投稿の表示
         if($request->list == 'following') {
             $posts = $post->whereIn('user_id',auth()->user()->follows()->pluck('followed_id'))->simplePaginate(5);
+            return view('post.index', ['posts' => $posts, 'following' => 'yes']);
+
+        } else if($request->list == 'favorite') {
+
+        $posts = $post->whereIn('id', auth()->user()->favorites()->pluck('post_id'))->simplePaginate(5);
+        return view('post.index', ['posts' => $posts, 'favorite' => 'yes']);
+
+
         } else {
             $posts = $post->with('user')->orderBy('updated_at', 'desc')->simplePaginate(5);
         }
@@ -110,7 +118,6 @@ class PostsController extends Controller
                 $favorite->post_id = $articleId;
                 $favorite->user_id = $person->id;
                 $favorite->save();
-
             } else {
                 $favorite->where('post_id', $articleId)->where('user_id',$person->id)->delete();
             }

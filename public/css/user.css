@@ -67,6 +67,10 @@ header {
   margin-right: 3%;
 }
 
+#main_left a {
+  color:black;
+}
+
 .left_menu {
   height: 50px;
   line-height: 50px;
@@ -104,7 +108,7 @@ header {
 .user {
   display: flex;
   padding: 10px 10px 30px 10px;
-  border: 1px solid #ddd;
+  border-bottom: 1px solid #ddd;
 }
 
 .userHeader {
@@ -177,3 +181,44 @@ header {
   margin-right: 10px;
 }
 
+.tabs {
+  display: flex;
+  margin-bottom: 50px;
+}
+
+.tab {
+  width: 33%;
+  text-align: center;
+}
+
+.tabs a {
+  display: inline-block;
+  height: 30px;
+  line-height: 30px;
+  color: #333;
+  width: 100%;
+}
+
+.tabs a:hover {
+  background-color: #eee;
+  text-decoration: none;
+
+}
+
+.underline {
+  height: 2px;
+  background-color: lightblue;
+}
+
+.boxLink {
+  color: #333;
+  text-decoration: none;
+}
+
+.boxLink:hover {
+  text-decoration: none;
+}
+
+.user:hover {
+  background-color: #f8f8f8;
+}
