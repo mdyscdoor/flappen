@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link href="{{asset('css/user.css')}}" rel="stylesheet">
-  <link href="{{asset('css/account.css')}}" rel="stylesheet">
+  <link href="{{asset('css/account_info.css')}}" rel="stylesheet">
   <title>Flappen</title>
 </head>
 <body>

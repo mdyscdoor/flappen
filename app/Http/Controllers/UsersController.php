@@ -6,6 +6,8 @@ use Illuminate\Http\Request;
 use App\Models\User;
 use App\Models\Post;
 use App\Models\Favorite;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Storage;
 
 class UsersController extends Controller
 {
@@ -86,7 +88,7 @@ class UsersController extends Controller
             $featuringUser = $user->getUser($request->username);
 
             if(isset($featuringUser)) {
-                $userPosts = $post->getUserPosts($featuringUser->id);
+                $userPosts = $post->where('user_id', $featuringUser->id)->orderByDesc('updated_at')->simplePaginate(5);
                 return view('user.show', ['user' => $featuringUser, 'posts' => $userPosts, 'postsCount' => $post->howManyPosts($featuringUser->id)]);
 
             } else {
@@ -226,8 +228,35 @@ class UsersController extends Controller
     {
         $edittingUser = auth()->user();
 
+        $request->validate([
+            'nickname' => 'required|max:255',
+            'profile' => 'max:255',
+            'profile_image' => 'required|image|mimes:jpeg,png,jpg,gif|max:1024'
+        ],
+        [
+            'nickname.required' => '入力してください',
+            'nickname.max' => '文字数が大きすぎます',
+            'profile.max' => '文字数が大きすぎます',
+            "profile_image.required" => "必須項目です。",
+            "profile_image.image" => "指定されたファイルが画像ではありません。",
+            "profile_image.mines" => "指定された拡張子（PNG/JPG/GIF/JPEG）ではありません。",
+            "profile_image.max" => "１Ｍを超えています。",
+        ]);
+
+        $profileImage = $request->file('profile_image');
+        if ($profileImage != null) {
+            $profile_image = $this->saveProfileImage($profileImage, $edittingUser->id); // return file name
+        }
+
+
+
+
+
+
         $edittingUser->nickname = $request->nickname;
         $edittingUser->profile = $request->profile;
+        $edittingUser->profile_image = $profile_image;
+
         $edittingUser->save();
 
         return redirect("/user/". $edittingUser->name);
@@ -242,5 +271,39 @@ class UsersController extends Controller
     public function destroy($id)
     {
         //
+    }
+
+
+
+    //アカウント情報ページ
+    public function info() {
+
+        
+        return view('account');
+    }
+
+
+
+
+
+    public function logout() {
+        Auth::logout();
+        return redirect('login');
+    }
+
+
+
+    //画像のトリミング
+    public function saveProfileImage($image, $id) {
+        $img = \Image::make($image);
+        $img->fit(100, 100, function($constraint){
+            $constraint->upsize(); 
+        });
+        // save
+        $file_name = 'profile_'.$id.'.'.$image->getClientOriginalExtension();
+        $save_path = 'public/profiles/'.$file_name;
+        Storage::put($save_path, (string) $img->encode());
+        // return file name
+        return $file_name;
     }
 }

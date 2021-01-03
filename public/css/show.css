@@ -177,6 +177,19 @@ header {
   padding-bottom: 5px;
 }
 
+.profile_edit {
+  margin-bottom: 40px;
+  text-align: center;
+  border: 1px solid #ddd;
+  padding-top: 5px;
+  padding-bottom: 5px;
+}
+
+
+
+
+
+
 .profile_info {
   display: flex;
   width: 100%;
@@ -195,6 +208,18 @@ header {
 .profile_info p {
   font-size: 111%;
 }
+
+
+.imgWrapper {
+  text-align: center;
+  padding-top: 25px;
+}
+
+
+
+
+
+
 
 .post1, .post2, .post3, .post4, .post5 {
   position: relative;

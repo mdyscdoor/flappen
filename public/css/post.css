@@ -28,11 +28,13 @@ header {
 
 .header_user {
   margin-left: 20px;
+
 }
 
 .header_auth {
   display: flex;
   padding-right: 20px;
+  position: relative;
 }
 
 .header_signup {

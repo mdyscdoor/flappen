@@ -16,9 +16,8 @@ use Illuminate\Support\Facades\Route;
 
 
 
-Route::get('/', 'App\Http\Controllers\FlappenController@index');
-
-
+Route::get('/', 'App\Http\Controllers\Auth\LoginController@index');
+Route::get('user_info', 'App\Http\Controllers\a');
 
 
 
@@ -55,5 +54,7 @@ Route::group(['middleware' => 'auth'], function() {
   Route::post('post', 'App\Http\Controllers\PostsController@comment');
 
   Route::get('post/delete', 'App\Http\Controllers\PostsController@delete');
+
+  Route::get('user_logout', 'App\Http\Controllers\UsersController@logout');
 
 });

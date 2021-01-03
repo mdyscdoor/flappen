@@ -4,17 +4,29 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link href="{{asset('css/post.css')}}" rel="stylesheet">
+  <link href="{{asset('css/account.css')}}" rel="stylesheet">
   <title>Flappen - </title>
 </head>
 <body>
   
   <header>
-    <p class="header_user">Flappen</p>
+    <p class="header_user"><a href="post/list">Flappen</a></p>
 
     <div class="header_auth">
-      <p class="header_signup">新規登録</p>
-      <p class="header_login">ログイン</p>
+    @if(auth()->user()->id)
+    <p id="new_draft"><a href="draft/new"><span class="plus">＋</span>投稿</a></p>
+      <p id="user_name">{{auth()->user()->name}}</p>
+      <div id="user_menu">
+        <p class="account_profile"><a href="user/{{auth()->user()->name}}">プロフィール</a></p>
+        <p><a href="user_info">アカウント情報</a></p>
+        <p><a href="user_logout">ログアウト</a></p>
+      </div>
+    @else
+      <p class="header_signup"><a href="../register">新規登録</a></p>
+      <p class="header_login"><a href="../login">ログイン</a></p>
+    @endif
     </div>
+
   </header>
 
   <div id="main_wrapper">
@@ -25,9 +37,7 @@
         <div id="main_left">
           <div class="left_menu"><span class="arr"></span><a href="./user">ユーザー</a></div>
           <div class="left_menu"><span class="arr"></span><a href="./post/list">ポスト</a></div>
-          <div class="left_menu"><span class="arr"></span>いいね</div>
-          <div class="left_menu"><span class="arr"></span></div>
-          <div class="left_menu"><span class="arr"></span></div>
+
         </div>
   
 
@@ -43,7 +53,13 @@
                   {{$post->updated_at}}
                 </div>
                 <div class="post_type">
-                  ??系
+                @if($user->type === 0)
+                      理
+                      @elseif($user->type === 0)
+                      文
+                      @else
+                      
+                      @endif
                 </div>
               </div>
 
@@ -91,7 +107,7 @@
                   {{$comment->updated_at}}
                 </div>
                 <div class="comment_type">
-                  農学系
+                  {{$comment->user->type}}
                 </div>
               </div>
 
@@ -114,7 +130,9 @@
             <div class="post_comment">
               <form action="" method="post">
                 @csrf
+                
                 <textarea name="comment" id="" cols="30" rows="10" placeholder="コメント"></textarea>
+
                 @error('comment')
                 <p class="err">何か入力してください</p>
                 @enderror
@@ -140,6 +158,6 @@
 
 
 
-
+<script src="{{asset('js/account.js')}}"></script>
 </body>
 </html>

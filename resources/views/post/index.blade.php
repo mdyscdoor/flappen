@@ -4,17 +4,32 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link href="{{asset('css/flap.css')}}" rel="stylesheet">
+  <link href="{{asset('css/account.css')}}" rel="stylesheet">
   <title>Flappen</title>
 </head>
 <body>
   
   <header>
-    <p class="header_user"><a href="./">Flappen</a></p>
+    <p class="header_user"><a href="">Flappen</a></p>
 
     <div class="header_auth">
-      <p class="header_signup"><a href="register">新規登録</a></p>
-      <p class="header_login"><a href="login">ログイン</a></p>
+    @if(auth()->user()->id)
+      <p id="new_draft"><a href="../draft/new"><span class="plus">＋</span>投稿</a></p>
+
+      <p id="user_name">{{auth()->user()->name}}</p>
+      <div id="user_menu">
+        <p class="account_profile"><a href="../user/{{auth()->user()->name}}">プロフィール</a></p>
+        <p><a href="../user_info">アカウント情報</a></p>
+        <p><a href="../user_logout">ログアウト</a></p>
+      </div>
+    @else
+      <p class="header_signup"><a href="../register">新規登録</a></p>
+      <p class="header_login"><a href="../login">ログイン</a></p>
+    @endif
     </div>
+
+
+
   </header>
 
   <div id="main_wrapper">
@@ -77,7 +92,13 @@
                   {{$post->updated_at}}
                 </div>
                 <div class="post_type">
-                  農学系
+                @if($post->user->type === 0)
+                      理
+                      @elseif($post->user->type === 0)
+                      文
+                      @else
+                      
+                      @endif
                 </div>
               </div>
 
@@ -140,6 +161,6 @@
 
 
 
-
+<script src="{{asset('js/account.js')}}"></script>
 </body>
 </html>
