@@ -211,3 +211,7 @@ header {
 .post:hover {
   background-color: #f8f8f8;
 }
+
+#main a {
+  color:black;
+}
