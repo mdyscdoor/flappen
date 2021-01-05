@@ -46,10 +46,10 @@ return [
         'mysql' => [
             'driver' => 'mysql',
             'url' => env('DATABASE_URL'),
-            'host' => env('DB_HOST', 'mysql149.phy.lolipop.lan'),
+            'host' => env('DB_HOST', '127.0.0.1'),
             'port' => env('DB_PORT', '3306'),
-            'database' => env('DB_DATABASE', 'LAA1233046-flappen'),
-            'username' => env('DB_USERNAME', 'LAA1233046'),
+            'database' => env('DB_DATABASE', 'flappen'),
+            'username' => env('DB_USERNAME', 'selfusr'),
             'password' => env('DB_PASSWORD', 'selfpass'),
             'unix_socket' => env('DB_SOCKET', ''),
             'charset' => 'utf8mb4',
