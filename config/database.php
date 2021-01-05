@@ -49,7 +49,7 @@ return [
             'host' => env('DB_HOST', 'mysql149.phy.lolipop.lan'),
             'port' => env('DB_PORT', '3306'),
             'database' => env('DB_DATABASE', 'LAA1233046-flappen'),
-            'username' => env('DB_USERNAME', 'LAA1233046-flappen'),
+            'username' => env('DB_USERNAME', 'LAA1233046'),
             'password' => env('DB_PASSWORD', 'selfpass'),
             'unix_socket' => env('DB_SOCKET', ''),
             'charset' => 'utf8mb4',
