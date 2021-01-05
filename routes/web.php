@@ -17,7 +17,6 @@ use Illuminate\Support\Facades\Route;
 
 
 Route::get('/', 'App\Http\Controllers\Auth\LoginController@index');
-Route::get('user_info', 'App\Http\Controllers\a');
 
 
 
