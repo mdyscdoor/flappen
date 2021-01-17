@@ -144,3 +144,11 @@ header {
   font-size: 70%;
   color:red;
 }
+
+@media all and (max-width:700px) {
+  #main {
+    width: 100%;
+  }
+
+
+}

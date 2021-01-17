@@ -247,3 +247,12 @@ header {
   border:none;
   margin-left: 20px;
 }
+
+@media all and (max-width:700px) {
+  #main {
+    width: 100%;
+  }
+  .edit_name {
+    width: 100%;
+  }
+}

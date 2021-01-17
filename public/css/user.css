@@ -227,3 +227,24 @@ header {
 #img {
   width: 100%;
 }
+
+
+@media all and (max-width:700px) {
+  #main {
+    display: block;
+  }
+
+  #main_left {
+    min-height:0;
+    width: 100%;
+    margin-bottom: 50px;
+  }
+
+  #main_right {
+    width: 100%;
+  }
+
+  .post_header_left {
+    display: block;
+  }
+}

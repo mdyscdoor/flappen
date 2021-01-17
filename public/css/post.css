@@ -238,3 +238,33 @@ header {
 #main_left a {
   color:black;
 }
+
+
+@media all and (max-width:700px) {
+  #main {
+    display: block;
+  }
+
+  #main_left {
+    min-height:0;
+    width: 100%;
+    margin-bottom: 50px;
+  }
+
+  #main_right {
+    width: 100%;
+  }
+
+  .post_header_left {
+    display: block;
+  }
+
+  .comments {
+    margin-left: 0;
+  }
+
+  .post_comment textarea {
+    margin-left: 5px;
+    width: 90%;
+  }
+}

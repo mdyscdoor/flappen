@@ -141,3 +141,12 @@ header {
 .btn-link {
   color: #333;
 }
+
+
+
+@media all and (max-width:700px) {
+  #main {
+    width: 80%;
+    padding:60px 20px;
+  }
+}
