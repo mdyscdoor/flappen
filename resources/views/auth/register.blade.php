@@ -40,7 +40,6 @@
 
         <div id="main_left">
           <h1>Flappen へようこそ</h1>
-          <p>Flappen は学生のための情報共有サービスです。</p>
         </div>
 
 
